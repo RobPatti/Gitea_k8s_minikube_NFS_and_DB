@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-pod
+  # * Create namespace before use POD 
+  namespace: ns-gitea
+  labels:
+    role: nfs
+spec:
+  containers:
+    - name: nfs-container
+      image: cpuguy83/nfs-server
+      securityContext:
+        privileged: true
+      args:
+        - /exports
