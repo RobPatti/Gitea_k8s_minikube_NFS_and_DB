@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  # First file to deploy Gitea
+  # You can change the name, but remind to change in all other files
+  # In metadata -> namespace 
+  name: ns-gitea
+  labels:
+    name: gitea-namespace
+
