@@ -6,6 +6,9 @@ metadata:
   namespace: ns-gitea
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
   template:
     metadata:
       labels: 
