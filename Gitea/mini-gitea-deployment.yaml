@@ -19,6 +19,7 @@ spec:
       containers:
         - name: gitea
           image: gitea/gitea:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
               name: gitea-http
@@ -31,7 +32,7 @@ spec:
       volumes: 
         - name: nfs
           nfs:
-            # Not so right this IP ?
-            server: 10.96.108.207
+            # NFS ip -> for see that use the following command -> kubectl get service nfs-service -n ns-gitea 
+            server: 10.102.99.82
             path: /
 
