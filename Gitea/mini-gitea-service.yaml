@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitea-service
+  # * Create namespace before use this Service
+  namespace: ns-gitea
+spec:
+  selector:
+    app: gitea
+  type: LoadBalancer
+  externalIPs: # Use your minikube IP
+    - 192.168.99.100
+  ports:
+    # Set gitea http ports
+    - name: gitea-http
+      protocol: TCP
+      port: 3000
+      targetPort: gitea-http
+      nodePort: 30000
+    # Set gitea ssh ports
+    - name: gitea-ssh
+      protocol: TCP
+      port: 22
+      targetPort: gitea-ssh
+      nodePort: 30002

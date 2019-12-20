@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres-deployment
-  # * Create namespace before use POD 
+  # * Create namespace before use this Deployment 
   namespace: ns-gitea
 spec:
   replicas: 1

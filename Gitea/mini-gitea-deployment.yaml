@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitea-deployment
+  # * Create namespace before use this Deployment
+  namespace: ns-gitea
+  labels:
+    app: gitea
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: gitea
+  template:
+    metadata:
+      labels:
+        app: gitea
+    spec:
+      containers:
+        - name: gitea
+          image: gitea/gitea:latest
+          ports:
+            - containerPort: 3000
+              name: gitea-http
+            - containerPort: 22
+              name: gitea-ssh
+          volumeMounts:
+            - name: nfs
+              mountPath: /data
+      # Linked to NFS volume
+      volumes: 
+        - name: nfs
+          nfs:
+            # Not so right this IP ?
+            server: 10.96.108.207
+            path: /
+

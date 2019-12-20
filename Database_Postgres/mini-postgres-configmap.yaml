@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-configmap
-  # * Create namespace before use POD 
+  # * Create namespace before use this ConfigMap 
   namespace: ns-gitea
   labels:
     app: postgres
