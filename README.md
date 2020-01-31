@@ -2,3 +2,5 @@
 Using Minikube to local deploy of Gitea
 
 In this case i use Persistent Volume ( using NFS storage type) and use DB postgres .
+
+Firts of all create **namespace** 
