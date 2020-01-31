@@ -9,7 +9,7 @@ spec:
     app: gitea
   type: LoadBalancer
   externalIPs: # Use your minikube IP
-    - 192.168.99.100
+    - ip
   ports:
     # Set gitea http ports
     - name: gitea-http
